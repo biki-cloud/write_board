@@ -12,7 +12,6 @@ def main_page():
     save_json_path = "data/save_data.json"
     
     if method == "POST":
-        #return str(dict(request.form))
         former = form(form_input=dict(request.form) , save_json_path=save_json_path)
         
         if "clear" in dict(request.form).keys():
