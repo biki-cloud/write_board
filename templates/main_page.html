@@ -1,0 +1,91 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>書き込み掲示板</title>
+<link href="/static/css/style.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="/static/js/main.js"></script>
+</head>
+<body>
+
+<div id="so_far_post_id" class="so_far_post_class">
+<p>過去の投稿を表示</p>
+</div>
+
+<body onload="start()">
+    <script>
+    var save_list = {{ save_list|tojson }};
+    function start() {
+        // 追加
+        for(let i = 0; i < save_list.length; i++) {
+            console.log(save_list[i])
+            var hoge = JSON.stringify(save_list[i]);
+            var pHoge = JSON.parse(hoge);
+
+            var newElement = document.createElement("p"); // p要素作成
+            var newContent = document.createTextNode("---------------------------"); // テキストノードを作成
+            newElement.appendChild(newContent); // p要素にテキストノードを追加
+            newElement.setAttribute("id",i); // p要素にidを設定
+            var parentDiv = document.getElementById("so_far_post_id");
+            // 子要素３への参照を取得
+            var childP3 = document.getElementById(i);
+            parentDiv.insertBefore(newElement, childP3);
+
+            var newElement = document.createElement("p"); // p要素作成
+            var newContent = document.createTextNode("投稿 " + pHoge.write_text); // テキストノードを作成
+            newElement.appendChild(newContent); // p要素にテキストノードを追加
+            newElement.setAttribute("id",i); // p要素にidを設定
+            var parentDiv = document.getElementById("so_far_post_id");
+            // 子要素３への参照を取得
+            var childP1 = document.getElementById(i);
+            parentDiv.insertBefore(newElement, childP1);
+            
+            var newElement = document.createElement("p"); // p要素作成
+            var newContent = document.createTextNode("名前 " + pHoge.name); // テキストノードを作成
+            newElement.appendChild(newContent); // p要素にテキストノードを追加
+            newElement.setAttribute("id",i); // p要素にidを設定
+            var parentDiv = document.getElementById("so_far_post_id");
+            // 子要素３への参照を取得
+            var childP2 = document.getElementById(i);
+            parentDiv.insertBefore(newElement, childP2);
+
+
+        }
+}
+    </script>
+</body>
+
+
+<p>method name {{method}}</p>
+
+<form method="get" action="/">
+<input type="submit" value="GET">
+</form>
+
+<br>
+
+<form method="post" action="/">
+<input type="submit" name="clear" value="登録内容clear">
+</form>
+
+<form method="post" action="/">
+<p>お名前</p>
+<input type="text" name="name">
+<p>内容</p>
+<textarea name="write_text" cols="50" rows="10"></textarea>
+
+<br><br>
+
+<input type="submit" value="投稿する">
+</form>
+
+
+<!--<p>form_result = {{form_input}}</p>
+<p>save_list = {{save_list}}</p> -->
+
+
+
+
+
+</body>
+</html>
