@@ -2,5 +2,9 @@
     {
         "name": "mike",
         "write_text": "hello"
+    },
+    {
+        "name": "bov",
+        "write_text": "hello mike"
     }
 ]

@@ -1,6 +1,7 @@
 from flask import Flask,render_template,request , Markup
 import json
 import time
+import os,sys
 
 from form_arrange import form
 
@@ -25,6 +26,11 @@ def main_page():
         former = form(save_json_path)
         save_list = former.save_list
         return render_template("main_page.html" , save_list=save_list, method=method)
+    
+@app.route('/test')
+def index():
+    return 'Hello World!'
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    #app.run(debug=True)
+    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
