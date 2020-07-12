@@ -1,4 +1,4 @@
-from flask import Flask,render_template,request , Markup
+from flask import Flask,render_template,request , Markup ,send_from_directory
 import json
 import time
 import os,sys
@@ -31,7 +31,11 @@ def main_page():
 def index():
     return 'Hello World!'
 
+@app.route('/favicon.ico') 
+def favicon(): 
+    return send_from_directory(os.path.join(app.root_path, 'static'), 'favicon.ico', mimetype='image/vnd.microsoft.icon')
+
 if __name__ == "__main__":
-    #app.run(debug=True)
-    app.run()
+    app.run(debug=True)
+    #app.run()
     #app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
