@@ -1,12 +1,16 @@
 import json
 import os,sys
+import time
 
 class form:
     def __init__(self  , save_json_path , form_input=None):
+        if form_input != None:
+            nowtime = str(time.ctime())
+            form_input["time"] = nowtime
+            self.form_input = form_input  
         self.save_list = self.read_save_json(save_json_path)
         self.save_json_path = save_json_path
-        if form_input != None:
-            self.form_input = form_input
+        
         
     def read_save_json(self , save_json_path):
         save_list = []

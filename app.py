@@ -3,6 +3,7 @@ import json
 import time
 import os,sys
 
+
 from form_arrange import form
 
 app = Flask(__name__)
@@ -21,7 +22,8 @@ def main_page():
         
         form_input = former.form_input
         former.write_save_json()
-        return render_template("main_page.html" , save_list=former.save_list,form_input=form_input , method=method)
+        return render_template("main_page.html" , save_list=former.save_list,form_input=form_input,
+                               method=method)
     else:
         former = form(save_json_path)
         save_list = former.save_list

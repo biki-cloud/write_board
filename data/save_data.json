@@ -1,10 +1,7 @@
 [
     {
-        "name": "mike",
-        "write_text": "hello"
-    },
-    {
-        "name": "bov",
-        "write_text": "hello mike"
+        "name": "f",
+        "write_text": "f",
+        "time": "Sun Jul 12 21:25:35 2020"
     }
 ]

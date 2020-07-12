@@ -4,8 +4,6 @@
 <meta charset="utf-8">
 <title>書き込み掲示板</title>
 <link href="/static/css/style.css" rel="stylesheet" type="text/css">
-<!-- <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon"> -->
-<!-- <link rel="shortcut icon" href="/favicon.ico"> -->
 <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
 <script type="text/javascript" src="/static/js/main.js"></script>
 </head>
@@ -36,9 +34,9 @@
 
 <form method="post" action="/">
 <p>お名前</p>
-<input type="text" name="name">
+<input type="text" name="name" required>
 <p>内容</p>
-<textarea name="write_text" cols="50" rows="10"></textarea>
+<textarea name="write_text" cols="50" rows="10" required></textarea>
 
 <br><br>
 
